@@ -1,0 +1,2 @@
+sarima_order,seasonal_order,trend_strength,seasonal_strength,last_month,last_price
+"(1, 1, 0)","(0, 0, 0, 12)",0.9809342947617311,0.35064188968616383,2026-09-01,1900.0
