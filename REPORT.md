@@ -2,7 +2,7 @@
 
 **Course:** Time-Series Data Analysis (Lecturer: KANN Bonpagna)
 **Dataset:** WFP Food Prices – Cambodia (`wfp_food_prices_khm.csv`)
-**Code:** `analysis.py` (fully reproducible; generates every figure in `figures/` and every table in `outputs/`)
+**Code:** `analysis.ipynb` (fully reproducible; generates every figure in `figures/` and every table in `outputs/`)
 
 ---
 
@@ -385,7 +385,7 @@ The full province × commodity × month table, with 80% and 95% intervals for al
 2. **Protein is the relief:** fish and pork prices are expected to fall into the harvest and fishing season, so the overall basket should ease about 9% from September's high.
 3. **Watch-list:** vegetable oil is at a multi-year high (32,000 KHR / 5 L) and forecast to stay there. It is import-dependent, so it is exposed to world prices and the exchange rate.
 4. **Province targeting:** south-eastern provinces (Takeo, Kandal, Svay Rieng) pay 10–25% more for rice, and remote provinces pay 15–45% more for fish. Assistance values could be differentiated by province.
-5. **Deployment (Step 8–10):** `analysis.py` reruns end to end in about 25 seconds. When WFP publishes October data, rerun the script to update the forecasts, and compare forecast vs actual each month to monitor the model.
+5. **Deployment (Step 8–10):** `analysis.ipynb` reruns end to end in under a minute. When WFP publishes October data, rerun the notebook to update the forecasts, and compare forecast vs actual each month to monitor the model.
 
 ---
 
@@ -433,11 +433,16 @@ The full province × commodity × month table, with 80% and 95% intervals for al
 
 ## Appendix B: Reproducing the results
 
+Requires Python 3.10+. Runs locally; Colab is not needed.
+
 ```bash
-cd final_project
-pip install pandas numpy matplotlib seaborn scipy statsmodels
-python3 analysis.py
+cd cambodia-food-price-anaylsis
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/jupyter nbconvert --to notebook --execute --inplace analysis.ipynb
 ```
+
+Or open `analysis.ipynb` in Jupyter / VS Code with the `.venv` kernel and choose **Run All**.
 
 Output tables in `outputs/`:
 
